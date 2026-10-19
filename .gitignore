@@ -1,0 +1,11 @@
+# Secrets
+config/users.json
+.Claude/cred.md
+*.postman_collection.json
+
+# Test output (keep the report and final runs, ignore ad-hoc runs)
+reports/*
+!reports/.gitkeep
+!reports/REPORT.md
+!reports/*-run1.*
+!reports/*-run2.*

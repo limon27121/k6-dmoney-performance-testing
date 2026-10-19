@@ -1,0 +1,8 @@
+{
+  "agent1":    { "phone": "01XXXXXXXXX", "email": "agent1@example.com",    "password": "****" },
+  "agent2":    { "phone": "01XXXXXXXXX", "email": "agent2@example.com",    "password": "****" },
+  "customer1": { "phone": "01XXXXXXXXX", "email": "customer1@example.com", "password": "****" },
+  "customer2": { "phone": "01XXXXXXXXX", "email": "customer2@example.com", "password": "****" },
+  "merchant1": { "phone": "01XXXXXXXXX", "email": "merchant1@example.com", "password": "****" },
+  "merchant2": { "phone": "01XXXXXXXXX", "email": "merchant2@example.com", "password": "****" }
+}

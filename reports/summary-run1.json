@@ -1,0 +1,666 @@
+{
+  "root_group": {
+    "name": "",
+    "path": "",
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "groups": [
+      {
+        "name": "setup",
+        "path": "::setup",
+        "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+        "groups": [],
+        "checks": [
+            {
+              "name": "login: status 200",
+              "path": "::setup::login: status 200",
+              "id": "638c85000baaeede3d6e857733f783df",
+              "passes": 6,
+              "fails": 0
+            },
+            {
+              "passes": 6,
+              "fails": 0,
+              "name": "login: OTP required",
+              "path": "::setup::login: OTP required",
+              "id": "401eecfa8921391ce6acce66ba012fbd"
+            },
+            {
+              "name": "verify-otp: status 200",
+              "path": "::setup::verify-otp: status 200",
+              "id": "f74f993f5414e60a7c7cbd3b331b203f",
+              "passes": 6,
+              "fails": 0
+            },
+            {
+              "name": "verify-otp: token returned",
+              "path": "::setup::verify-otp: token returned",
+              "id": "7921ba80120d466e07a96e5bc72e7acd",
+              "passes": 6,
+              "fails": 0
+            }
+          ]
+      }
+    ],
+    "checks": [
+      {
+        "path": "::sendmoney: status is 201",
+        "id": "ef1f46f6e0788615f8d1fd37b73b2548",
+        "passes": 89,
+        "fails": 0,
+        "name": "sendmoney: status is 201"
+      },
+      {
+        "name": "sendmoney: transaction successful",
+        "path": "::sendmoney: transaction successful",
+        "id": "a2904a7a1c16ecc4d6e318ab004225fa",
+        "passes": 89,
+        "fails": 0
+      },
+      {
+        "name": "sendmoney: trnxId returned",
+        "path": "::sendmoney: trnxId returned",
+        "id": "00c7cc22abdff314fbda91aea9142c68",
+        "passes": 89,
+        "fails": 0
+      },
+      {
+        "path": "::sendmoney: success message",
+        "id": "7995f3ba923f35f9301849b108053999",
+        "passes": 89,
+        "fails": 0,
+        "name": "sendmoney: success message"
+      },
+      {
+        "path": "::payment: status is 201",
+        "id": "c57cdc67663e5b4cfa44c0646f8ac46e",
+        "passes": 209,
+        "fails": 0,
+        "name": "payment: status is 201"
+      },
+      {
+        "id": "588cfa2543d2ec030b343306e81a36a5",
+        "passes": 209,
+        "fails": 0,
+        "name": "payment: transaction successful",
+        "path": "::payment: transaction successful"
+      },
+      {
+        "name": "payment: trnxId returned",
+        "path": "::payment: trnxId returned",
+        "id": "9dfd0f7d9ecc989697a940cc01413135",
+        "passes": 209,
+        "fails": 0
+      },
+      {
+        "passes": 209,
+        "fails": 0,
+        "name": "payment: success message",
+        "path": "::payment: success message",
+        "id": "7d511b5093e38f7e2a422d13878992ce"
+      },
+      {
+        "passes": 89,
+        "fails": 0,
+        "name": "deposit: status is 201",
+        "path": "::deposit: status is 201",
+        "id": "c277bd0960b7c571d41399ff63f35855"
+      },
+      {
+        "fails": 0,
+        "name": "deposit: transaction successful",
+        "path": "::deposit: transaction successful",
+        "id": "5088bb7ef87041da05990eba2278c9d4",
+        "passes": 89
+      },
+      {
+        "name": "deposit: trnxId returned",
+        "path": "::deposit: trnxId returned",
+        "id": "ffd0ea948c31f93738778d05985411e5",
+        "passes": 89,
+        "fails": 0
+      },
+      {
+        "name": "deposit: success message",
+        "path": "::deposit: success message",
+        "id": "1138fa712492669cef66f9c78ac47d6c",
+        "passes": 89,
+        "fails": 0
+      }
+    ]
+  },
+  "options": {
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": "",
+    "noColor": false
+  },
+  "state": {
+    "isStdOutTTY": false,
+    "isStdErrTTY": false,
+    "testRunDurationMs": 120913.0099
+  },
+  "metrics": {
+    "http_req_receiving": {
+      "values": {
+        "med": 0.5231,
+        "max": 11.6304,
+        "p(90)": 3.5780799999999995,
+        "p(95)": 6.262029999999999,
+        "avg": 1.134022055137845,
+        "min": 0
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_duration{api:sendmoney,phase:p1}": {
+      "contains": "time",
+      "values": {
+        "p(90)": 36.14358,
+        "p(95)": 40.211474999999986,
+        "avg": 26.57560333333333,
+        "min": 13.2836,
+        "med": 27.97705,
+        "max": 48.7806
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 28.93280350877193,
+        "min": 5.3212,
+        "med": 28.7681,
+        "max": 64.8781,
+        "p(90)": 45.19104,
+        "p(95)": 50.47263999999999
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 177547,
+        "rate": 1468.3862402138416
+      }
+    },
+    "http_req_failed{api:deposit}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 89
+      },
+      "thresholds": {
+        "rate<0.01": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:payment,phase:p1}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 26.862939999999995,
+        "min": 11.9121,
+        "med": 28.28435,
+        "max": 62.1155,
+        "p(90)": 39.25157,
+        "p(95)": 42.340405
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:payment,phase:p4}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 44.178794999999994,
+        "avg": 26.677591666666665,
+        "min": 13.3405,
+        "med": 26.4371,
+        "max": 49.1911,
+        "p(90)": 39.434180000000005
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 4,
+        "min": 2,
+        "max": 5
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 399,
+        "rate": 3.2998930415344825
+      }
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 49.24191999999999,
+        "avg": 27.788096491228057,
+        "min": 4.5097,
+        "med": 27.0198,
+        "max": 64.2046,
+        "p(90)": 44.54588
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 28.93280350877193,
+        "min": 5.3212,
+        "med": 28.7681,
+        "max": 64.8781,
+        "p(90)": 45.19104,
+        "p(95)": 50.47263999999999
+      }
+    },
+    "http_req_duration{api:sendmoney,phase:p2}": {
+      "contains": "time",
+      "values": {
+        "avg": 29.93363333333333,
+        "min": 14.8549,
+        "med": 30.22175,
+        "max": 64.0966,
+        "p(90)": 44.381530000000005,
+        "p(95)": 49.40446999999999
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend"
+    },
+    "http_req_sending": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0.010684962406015035,
+        "min": 0,
+        "med": 0,
+        "max": 0.566,
+        "p(90)": 0,
+        "p(95)": 0
+      }
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 399
+      },
+      "thresholds": {
+        "rate<0.01": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:payment,phase:p2}": {
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 64.471,
+        "p(90)": 43.98454,
+        "p(95)": 48.55907999999998,
+        "avg": 29.654266666666665,
+        "min": 15.5523,
+        "med": 30.60485
+      }
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 1030.0947116580314,
+        "min": 1012.3253,
+        "med": 1029.74635,
+        "max": 1064.8988,
+        "p(90)": 1046.44245,
+        "p(95)": 1050.93655
+      }
+    },
+    "http_req_duration{api:sendmoney,phase:p3}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 34.626634482758625,
+        "min": 16.2362,
+        "med": 36.7129,
+        "max": 54.4721,
+        "p(90)": 49.96446,
+        "p(95)": 51.192460000000004
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      }
+    },
+    "iterations": {
+      "contains": "default",
+      "values": {
+        "count": 386,
+        "rate": 3.1923777294042863
+      },
+      "type": "counter"
+    },
+    "http_req_failed{api:payment}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 209
+      },
+      "thresholds": {
+        "rate<0.01": {
+          "ok": true
+        }
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 145814,
+        "rate": 1205.9413633040326
+      }
+    },
+    "http_req_duration{api:deposit}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 32.12878314606743,
+        "min": 17.2148,
+        "med": 31.6273,
+        "max": 55.0253,
+        "p(90)": 50.19414,
+        "p(95)": 51.54482
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:deposit,phase:p2}": {
+      "values": {
+        "min": 17.2148,
+        "med": 30.8718,
+        "max": 51.2186,
+        "p(90)": 35.65756000000001,
+        "p(95)": 42.16617999999998,
+        "avg": 29.26687
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 0.9594,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.02044661654135338,
+        "min": 0,
+        "med": 0
+      }
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 8,
+        "min": 8,
+        "max": 8
+      }
+    },
+    "http_req_duration{api:payment,phase:p3}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 53.95446,
+        "avg": 34.845162068965514,
+        "min": 14.4695,
+        "med": 36.5228,
+        "max": 64.8781,
+        "p(90)": 52.25644
+      },
+      "thresholds": {
+        "avg<1000": {
+          "ok": true
+        },
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "checks{api:sendmoney}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 1,
+        "passes": 356,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>=0.99": {
+          "ok": true
+        }
+      }
+    },
+    "checks{api:deposit}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 1,
+        "passes": 356,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>=0.99": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:sendmoney}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 50.38723999999999,
+        "avg": 30.330893258426965,
+        "min": 13.2836,
+        "med": 29.9928,
+        "max": 64.0966,
+        "p(90)": 47.393879999999996
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_blocked": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 0,
+        "max": 1.2334,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.02696315789473684
+      }
+    },
+    "checks": {
+      "values": {
+        "rate": 1,
+        "passes": 1572,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>=0.99": {
+          "ok": true
+        }
+      },
+      "type": "rate",
+      "contains": "default"
+    },
+    "http_req_duration{api:deposit,phase:p3}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 17.492,
+        "med": 32.6775,
+        "max": 55.0253,
+        "p(90)": 50.63734,
+        "p(95)": 52.37656,
+        "avg": 33.58399322033899
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        },
+        "avg<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_duration{api:payment}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 27.9301,
+        "max": 64.8781,
+        "p(90)": 43.99766,
+        "p(95)": 47.466339999999995,
+        "avg": 28.264769856459324,
+        "min": 11.9121
+      },
+      "thresholds": {
+        "p(95)<1000": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_failed{api:sendmoney}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "fails": 89,
+        "rate": 0,
+        "passes": 0
+      },
+      "thresholds": {
+        "rate<0.01": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "min": 0,
+        "med": 0,
+        "max": 0,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0
+      }
+    },
+    "checks{api:payment}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 1,
+        "passes": 836,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>=0.99": {
+          "ok": true
+        }
+      }
+    }
+  },
+  "setup_data": {
+    "tokens": {
+      "merchant1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE2MjM2OTIyNzkiLCJyb2xlIjoiTWVyY2hhbnQiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.FjFoOZ1Au4l6GyneJJVIzQTIV6UJTF37IYuHqo8yqRk",
+      "merchant2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE2MjM2OTIyMTEiLCJyb2xlIjoiTWVyY2hhbnQiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.IxKNb1fKcoT5P9c3PfBUP70MfWETM-Gd_U0yCl6uYjo",
+      "agent1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE2MjM2OTIyNzciLCJyb2xlIjoiQWdlbnQiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.kFKYljymiYLfZumGoN_VkI8-m5f2wdTb-EDH8M0TDnI",
+      "agent2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE1ODEwMzUzNDUiLCJyb2xlIjoiQWdlbnQiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.78dMihwANss6K7F04_L1KJ_6dFf-Teg8bQUvFTJjUQY",
+      "customer1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE2MjM2OTIyODAiLCJyb2xlIjoiQ3VzdG9tZXIiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.vUDpew6qle0hFg8k7nrcwQ7cnHq7eTY4IoqcSKvYHZY",
+      "customer2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiMDE2MjM2OTIyMTIiLCJyb2xlIjoiQ3VzdG9tZXIiLCJpYXQiOjE3OTI0MzY4NzEsImV4cCI6MTc5MjQ0MDQ3MX0.Z7yJKAi11-3e293r73yOBg3ppTAnHk1SLB8YSsKd7xk"
+    }
+  }
+}

@@ -42,6 +42,15 @@ reports/
 
 ## How to Run
 
+### Easiest: one script (Windows PowerShell)
+
+```powershell
+.\scripts\run-full-test.ps1 -Run run3
+```
+This turns the Customer limits off, runs the full test with the dashboard export, and then **always** turns the limits back on, even if the test fails or you stop it with Ctrl+C.
+
+### Manual
+
 ```bash
 # Smoke tests (fast, run these first)
 k6 run tests/smoke-auth.js
