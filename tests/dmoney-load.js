@@ -17,7 +17,7 @@ const WINDOW = 30;          // seconds per phase
 const PHASE_START = { p1: 0, p2: 30, p3: 60, p4: 90 };
 
 // Maps the API name in FLOWS to the function that calls it.
-const TRANSACTIONS = { deposit, sendmoney: sendMoney, payment };
+const TRANSACTIONS = { deposit, sendmoney: sendMoney, payme nt };
 
 // The assignment's transaction plan, one line per "who pays whom".
 // Each flow runs as its own scenario: 1 VU looping for the whole window.
