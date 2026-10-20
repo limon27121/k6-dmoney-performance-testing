@@ -7,15 +7,19 @@ import { htmlReport } from 'https://cdn.jsdelivr.net/gh/benc-uk/k6-reporter@2.4.
 import { login } from '../lib/auth.js';
 import { deposit, sendMoney, payment } from '../lib/transactions.js';
 
+// The 6 test users (phone, email, password). Loaded once when the test starts.
 const users = JSON.parse(open('../config/users.json'));
 
+// Test settings
 const AMOUNT = 10;          // minimum deposit; keeps balances lasting
 const PACING = 1;           // seconds between transactions per flow
 const WINDOW = 30;          // seconds per phase
 const PHASE_START = { p1: 0, p2: 30, p3: 60, p4: 90 };
 
+// Maps the API name in FLOWS to the function that calls it.
 const TRANSACTIONS = { deposit, sendmoney: sendMoney, payment };
 
+// The assignment's transaction plan, one line per "who pays whom".
 // Each flow runs as its own scenario: 1 VU looping for the whole window.
 // Flows in the same phase start together, so they run concurrently.
 const FLOWS = {
@@ -40,6 +44,8 @@ const FLOWS = {
 
 const ACTIVE_PHASES = (__ENV.PHASES || 'p1,p2,p3,p4').split(',');
 
+// Turns each flow above into a k6 scenario. startTime decides when it begins
+// (0s, 30s, 60s, 90s) and duration keeps it running for its 30s window.
 function buildScenarios() {
   const scenarios = {};
   for (const [name, flow] of Object.entries(FLOWS)) {
@@ -61,6 +67,8 @@ function buildScenarios() {
 const P95_MS = Number(__ENV.P95_MS || 1000);   // override to test a failing threshold
 const APIS = ['deposit', 'sendmoney', 'payment'];
 
+// Pass/fail rules for the test: <1% failed requests, p(95) < 1000 ms, >=99% checks passing.
+// Set for the whole test and again for each API, so a slow API can't hide behind fast ones.
 function buildThresholds() {
   const t = {
     // Global
@@ -97,6 +105,8 @@ export function setup() {
   return { tokens };
 }
 
+// What each VU does in a loop: read its flow (who -> whom, which API),
+// send one transaction with the sender's own token, then wait 1s.
 export function runFlow(data) {
   const flow = FLOWS[__ENV.FLOW];
   const from = users[flow.from];
